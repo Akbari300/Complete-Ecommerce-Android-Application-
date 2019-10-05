@@ -28,11 +28,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
-                                               android:id="@+id/image1"
-                                               android:layout_width="match_parent"
-                                               android:layout_height="200.0dp"
-                                               fresco:placeholderImage="@color/stay_color" />
+    <com.facebook.drawee.view.SimpleDraweeView
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/image1"
+        android:layout_width="match_parent"
+        android:layout_height="200.0dp"
+        fresco:placeholderImage="@color/stay_color" />
 
     <LinearLayout android:id="@+id/layout_item_desc"
         android:layout_width="match_parent"
@@ -45,20 +46,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1.8">
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Item Name "
-                      android:textSize="10dp"
-                      android:textStyle="bold"/>
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Item descriptions"
-                      android:textSize="10dp"/>
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Rs. 8,999"
-                      android:textSize="12dp"
-                      android:textColor="#4CAF50"/>
+            <TextView
+                android:id="@+id/list_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Name "
+                android:textSize="10dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/list_item_Desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="jeans with blue t-shirt suitalbe for all kind of american activiies "
+                android:textSize="10dp"/>
+
+            <TextView
+                android:id="@+id/list_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$ 8.02"
+                android:textSize="12dp"
+                android:textColor="#4CAF50"/>
+
         </LinearLayout>
         <ImageView android:id="@+id/ic_wishlist"
                    android:layout_width="wrap_content"

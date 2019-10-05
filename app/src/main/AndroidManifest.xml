@@ -34,17 +34,21 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".fragments.ViewPagerActivity"/>
-        <activity android:name=".product.ItemDetailsActivity">
+        <activity android:name=".product.ItemDetailsActivity"
+            android:parentActivityName=".startup.MainActivity">
         </activity>
         <activity
             android:name=".options.WishlistActivity"
+            android:parentActivityName=".startup.MainActivity"
             android:label="@string/my_wishlist">
         </activity>
         <activity
             android:name=".options.CartListActivity"
+            android:parentActivityName=".startup.MainActivity"
             android:label="@string/my_cart">
         </activity>
-        <activity android:name=".options.SearchResultActivity">
+        <activity android:name=".options.SearchResultActivity"
+            android:parentActivityName=".startup.MainActivity">
 
             <!-- to identify this activity as "searchable.xml" -->
             <intent-filter>

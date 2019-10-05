@@ -8,18 +8,22 @@
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
                   android:weightSum="3">
-        <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
-                                                   android:id="@+id/image_cartlist" android:layout_width="0dp"
-                                                   android:layout_height="80dp"
-                                                   android:layout_weight="1"
-                                                   android:layout_gravity="center_vertical"
-                                                   fresco:placeholderImage="@color/stay_color"/>
+        <com.facebook.drawee.view.SimpleDraweeView
+            xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/image_cartlist" android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            fresco:placeholderImage="@color/stay_color"/>
+
+
         <LinearLayout  android:id="@+id/layout_item_desc"
                        android:layout_width="0dp"
                        android:layout_height="wrap_content"
                        android:orientation="vertical"
                        android:layout_weight="2"
                        android:layout_marginLeft="@dimen/activity_horizontal_margin">
+
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text="Denim Shirt"
@@ -31,7 +35,7 @@
                       android:textSize="@dimen/text_size_small"/>
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:text="Rs. 8,999"
+                      android:text="$ 8.02"
                       android:textSize="@dimen/text_size_xmedium"
                       android:textColor="#4CAF50"
                       android:layout_marginTop="@dimen/margin_small"/>

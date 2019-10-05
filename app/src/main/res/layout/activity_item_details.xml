@@ -20,34 +20,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
-                                                   android:id="@+id/image1"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="200.0dp"
-                                                   fresco:placeholderImage="@color/stay_color" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/image1"
+            android:layout_width="match_parent"
+            android:layout_height="200.0dp"
+            fresco:placeholderImage="@color/stay_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:orientation="vertical">
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Denim Shirt"
-                          android:textSize="16dp"
-                          android:textColor="@color/gen_black"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="8dp"
-                          android:text="Rs. 1,979"
-                          android:textSize="20dp"
-                          android:textColor="@color/gen_black"
+                <TextView
+                    android:id="@+id/item_detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Denim Shirt"
+                    android:textSize="16dp"
+                    android:textColor="@color/gen_black"/>
+                <TextView
+                    android:id="@+id/item_detail_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="$ 8.02"
+                    android:textSize="20dp"
+                    android:textColor="@color/gen_black"
                           />
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="FREE Delivery"
-                          android:textSize="12dp"
-                          android:layout_marginTop="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FREE Delivery"
+                    android:textSize="12dp"
+                    android:layout_marginTop="4dp"/>
+
             </LinearLayout>
 
 
