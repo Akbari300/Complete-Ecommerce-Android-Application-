@@ -127,31 +127,38 @@ public class MainActivity extends AppCompatActivity
         Bundle bundle = new Bundle();
         bundle.putInt("type", 1);
         fragment.setArguments(bundle);
+
         adapter.addFragment(fragment, getString(R.string.item_1));
         fragment = new ImageListFragment();
         bundle = new Bundle();
         bundle.putInt("type", 2);
         fragment.setArguments(bundle);
+
+
         adapter.addFragment(fragment, getString(R.string.item_2));
         fragment = new ImageListFragment();
         bundle = new Bundle();
         bundle.putInt("type", 3);
         fragment.setArguments(bundle);
+
         adapter.addFragment(fragment, getString(R.string.item_3));
         fragment = new ImageListFragment();
         bundle = new Bundle();
         bundle.putInt("type", 4);
         fragment.setArguments(bundle);
+
         adapter.addFragment(fragment, getString(R.string.item_4));
         fragment = new ImageListFragment();
         bundle = new Bundle();
         bundle.putInt("type", 5);
         fragment.setArguments(bundle);
+
         adapter.addFragment(fragment, getString(R.string.item_5));
         fragment = new ImageListFragment();
         bundle = new Bundle();
         bundle.putInt("type", 6);
         fragment.setArguments(bundle);
+
         adapter.addFragment(fragment, getString(R.string.item_6));
         viewPager.setAdapter(adapter);
     }
