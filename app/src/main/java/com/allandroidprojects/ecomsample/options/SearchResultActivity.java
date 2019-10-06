@@ -9,45 +9,68 @@ import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toast;
 
 import com.allandroidprojects.ecomsample.R;
 
+import java.util.List;
+
 public class SearchResultActivity extends AppCompatActivity {
+
+    SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
-        handleIntent(getIntent());
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        // Inflate menu to add items to action bar if it is present.
-        inflater.inflate(R.menu.search_menu, menu);
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+
         MenuItem searchItem = menu.getItem(0);
-        // Associate searchable configuration with the SearchView
+
+        final MenuItem myActionMenuItem = menu.findItem(R.id.action_search);
+        searchView = (SearchView) myActionMenuItem.getActionView();
+
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
         searchView.setFocusable(true);
+
         searchItem.expandActionView();
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (!searchView.isIconified()) {
+                    searchView.setIconified(true);
+                }
+                myActionMenuItem.collapseActionView();
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                    message();
+                return true;
+            }
+        });
+
+
+
         return true;
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        handleIntent(intent);
+
+    private void message()
+    {
+        Toast.makeText(SearchResultActivity.this, "Yes Yes", Toast.LENGTH_SHORT).show();
     }
 
-    private void handleIntent(Intent intent) {
-
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            //use the query to search your data somehow
-        }
-    }
 
 }
