@@ -34,27 +34,32 @@ public class Word {
 
     }
 
-    public ArrayList<Word> getMyCard(){return wishlist;}
-
-    public void removeMyCard(int position)
-    {
-        wishlist.remove(position);
-    }
-
-
-    public void SetMyCard(Word word)
-    {
-        this.wishlist.add(0, word);
-
-    }
-
-
     public ArrayList<Word> getWishlist(){return wishlist;}
 
     public void removeWishList(int position)
     {
         wishlist.remove(position);
     }
+
+
+
+    public ArrayList<Word> getMyCard(){return MyCard;}
+
+    public void removeMyCard(int position)
+    {
+        MyCard.remove(position);
+    }
+
+
+    public void SetMyCard(Word word)
+    {
+        MyCard.add(0, word);
+
+    }
+
+
+
+
 
 
     public String getWordName() {

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.product.ItemDetailsActivity;
@@ -28,7 +29,7 @@ import static com.allandroidprojects.ecomsample.fragments.ImageListFragment.STRI
 
 public class WishlistActivity extends AppCompatActivity {
     private static Context mContext;
-
+    private Word word;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +39,11 @@ public class WishlistActivity extends AppCompatActivity {
         ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
         ArrayList<String> wishlistImageUri =imageUrlUtils.getWishlistImageUri();
 
-        Word word = new Word();
+        word = new Word();
         ArrayList<Word> wishlistDetail = word.getWishlist();
+
+
+
 
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerview);
         RecyclerView.LayoutManager recylerViewLayoutManager = new LinearLayoutManager(mContext);
@@ -137,4 +141,8 @@ public class WishlistActivity extends AppCompatActivity {
             return mWishlistImageUri.size();
         }
     }
+
+
+
+
 }

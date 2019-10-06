@@ -185,7 +185,19 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, WishlistActivity.class));
         }else if (id == R.id.my_cart) {
             startActivity(new Intent(MainActivity.this, CartListActivity.class));
-        }else {
+        }
+
+        else if(id == R.id.my_account)
+        {
+            startActivity(new Intent(MainActivity.this, MyAccount.class));
+        }
+
+        else if(id == R.id.my_orders)
+        {
+            startActivity(new Intent(MainActivity.this, MyOrder.class));
+        }
+
+        else {
             startActivity(new Intent(MainActivity.this, EmptyActivity.class));
         }
 

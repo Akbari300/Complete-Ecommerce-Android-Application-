@@ -57,7 +57,8 @@
                   android:textStyle="bold"
                   android:gravity="center"/>
     </LinearLayout>
-    <include android:id="@+id/layout_cart_empty"
+    <include
+        android:id="@+id/layout_cart_empty"
         layout="@layout/empty_message_layout_action"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
