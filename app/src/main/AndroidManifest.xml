@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".startup.Registration"
+            android:parentActivityName=".startup.MyAccount"
+            android:label="Register Account"></activity>
+        <activity
             android:name=".startup.MyAccount"
             android:label="My Account"
-            android:parentActivityName=".startup.MainActivity"/>
+            android:parentActivityName=".startup.MainActivity" />
         <activity
             android:name=".startup.MyOrder"
             android:label="Add Order"
@@ -64,8 +68,8 @@
         </activity>
         <activity android:name=".miscellaneous.EmptyActivity" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
