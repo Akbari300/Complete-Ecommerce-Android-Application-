@@ -13,10 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.product.ItemDetailsActivity;
 import com.allandroidprojects.ecomsample.startup.MainActivity;
+import com.allandroidprojects.ecomsample.startup.Word;
 import com.allandroidprojects.ecomsample.utility.ImageUrlUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -35,6 +37,10 @@ public class CartListActivity extends AppCompatActivity {
 
         ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
         ArrayList<String> cartlistImageUri =imageUrlUtils.getCartListImageUri();
+
+        Word word = new Word();
+        ArrayList<Word> list = word.getMyCard();
+
         //Show cart layout based on items
         setCartLayout();
 
@@ -42,19 +48,21 @@ public class CartListActivity extends AppCompatActivity {
         RecyclerView.LayoutManager recylerViewLayoutManager = new LinearLayoutManager(mContext);
 
         recyclerView.setLayoutManager(recylerViewLayoutManager);
-        recyclerView.setAdapter(new CartListActivity.SimpleStringRecyclerViewAdapter(recyclerView, cartlistImageUri));
+        recyclerView.setAdapter(new CartListActivity.SimpleStringRecyclerViewAdapter(recyclerView, cartlistImageUri, list));
     }
 
     public static class SimpleStringRecyclerViewAdapter
             extends RecyclerView.Adapter<CartListActivity.SimpleStringRecyclerViewAdapter.ViewHolder> {
 
         private ArrayList<String> mCartlistImageUri;
+        private ArrayList<Word> productDetails;
         private RecyclerView mRecyclerView;
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
             public final SimpleDraweeView mImageView;
             public final LinearLayout mLayoutItem, mLayoutRemove , mLayoutEdit;
+            public final TextView textViewName, textViewDesc, textViewPrice;
 
             public ViewHolder(View view) {
                 super(view);
@@ -63,12 +71,18 @@ public class CartListActivity extends AppCompatActivity {
                 mLayoutItem = (LinearLayout) view.findViewById(R.id.layout_item_desc);
                 mLayoutRemove = (LinearLayout) view.findViewById(R.id.layout_action1);
                 mLayoutEdit = (LinearLayout) view.findViewById(R.id.layout_action2);
+                textViewName = (TextView) view.findViewById(R.id.cardlist_name);
+                textViewDesc = (TextView) view.findViewById(R.id.cardlist_desc);
+                textViewPrice = (TextView) view.findViewById(R.id.cardlist_price);
             }
         }
 
-        public SimpleStringRecyclerViewAdapter(RecyclerView recyclerView, ArrayList<String> wishlistImageUri) {
+        public SimpleStringRecyclerViewAdapter(RecyclerView recyclerView,
+                                               ArrayList<String> wishlistImageUri,
+                                               ArrayList<Word> listitem) {
             mCartlistImageUri = wishlistImageUri;
             mRecyclerView = recyclerView;
+            productDetails = listitem;
         }
 
         @Override
@@ -92,6 +106,11 @@ public class CartListActivity extends AppCompatActivity {
         public void onBindViewHolder(final CartListActivity.SimpleStringRecyclerViewAdapter.ViewHolder holder, final int position) {
             final Uri uri = Uri.parse(mCartlistImageUri.get(position));
             holder.mImageView.setImageURI(uri);
+
+            holder.textViewName.setText(productDetails.get(position).getWordName());
+            holder.textViewDesc.setText(productDetails.get(position).getWordDesc());
+            holder.textViewPrice.setText(productDetails.get(position).getWordPrice());
+
             holder.mLayoutItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -108,6 +127,8 @@ public class CartListActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
                     imageUrlUtils.removeCartListImageUri(position);
+                    Word word = new Word();
+                    word.removeMyCard(position);
                     notifyDataSetChanged();
                     //Decrease notification count
                     MainActivity.notificationCountCart--;

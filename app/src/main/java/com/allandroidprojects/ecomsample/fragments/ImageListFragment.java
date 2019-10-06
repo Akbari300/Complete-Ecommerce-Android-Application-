@@ -37,7 +37,6 @@ import com.allandroidprojects.ecomsample.startup.MainActivity;
 import com.allandroidprojects.ecomsample.utility.ImageUrlUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -181,12 +180,23 @@ public class ImageListFragment extends Fragment {
             holder.textViewPrice.setText(productdetials.get(position).getWordPrice());
 
 
+            final String name = productdetials.get(position).getWordName();
+            final String price = productdetials.get(position).getWordPrice();
+            final String desc = productdetials.get(position).getWordDesc();
+
+
+
+
             holder.mLayoutItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mActivity, ItemDetailsActivity.class);
                     intent.putExtra(STRING_IMAGE_URI, mValues[position]);
                     intent.putExtra(STRING_IMAGE_POSITION, position);
+                    intent.putExtra("name", name);
+                    intent.putExtra("price", price);
+                    intent.putExtra("desc", desc);
+
                     mActivity.startActivity(intent);
 
                 }
@@ -198,9 +208,12 @@ public class ImageListFragment extends Fragment {
                 public void onClick(View view) {
                     ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
                     imageUrlUtils.addWishlistImageUri(mValues[position]);
+
+                    Word word = new Word();
+                    word.SetWishList(productdetials.get(position));
                     holder.mImageViewWishlist.setImageResource(R.drawable.ic_favorite_black_18dp);
                     notifyDataSetChanged();
-                    Toast.makeText(mActivity,"Item added to wishlist.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity,"Item added to Wishlist.",Toast.LENGTH_SHORT).show();
 
                 }
             });

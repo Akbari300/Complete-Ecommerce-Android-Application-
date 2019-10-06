@@ -1,10 +1,16 @@
 package com.allandroidprojects.ecomsample.startup;
 
+
+import java.util.ArrayList;
+
 public class Word {
 
     private String name;
     private String desc;
     private String price;
+
+    static ArrayList<Word> wishlist = new ArrayList<>();
+    static ArrayList<Word> MyCard = new ArrayList<>();
 
     public Word(String name, String desc, String price)
     {
@@ -15,19 +21,40 @@ public class Word {
 
     }
 
-    public void setWordName(String name) {
-        this.name = name;
+    public Word()
+    {
+        name = null;
+        desc = null;
+        price = null;
     }
 
-    public void setWordDesc(String desc) {
-        this.desc = desc;
+    public void SetWishList(Word word)
+    {
+        this.wishlist.add(0, word);
+
     }
 
-    public void setWordPrice(String price) {
-        this.price = price;
+    public ArrayList<Word> getMyCard(){return wishlist;}
+
+    public void removeMyCard(int position)
+    {
+        wishlist.remove(position);
     }
 
 
+    public void SetMyCard(Word word)
+    {
+        this.wishlist.add(0, word);
+
+    }
+
+
+    public ArrayList<Word> getWishlist(){return wishlist;}
+
+    public void removeWishList(int position)
+    {
+        wishlist.remove(position);
+    }
 
 
     public String getWordName() {

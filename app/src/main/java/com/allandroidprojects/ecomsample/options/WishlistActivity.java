@@ -12,13 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.product.ItemDetailsActivity;
+import com.allandroidprojects.ecomsample.startup.Word;
 import com.allandroidprojects.ecomsample.utility.ImageUrlUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.allandroidprojects.ecomsample.fragments.ImageListFragment.STRING_IMAGE_POSITION;
 import static com.allandroidprojects.ecomsample.fragments.ImageListFragment.STRING_IMAGE_URI;
@@ -34,11 +37,15 @@ public class WishlistActivity extends AppCompatActivity {
 
         ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
         ArrayList<String> wishlistImageUri =imageUrlUtils.getWishlistImageUri();
+
+        Word word = new Word();
+        ArrayList<Word> wishlistDetail = word.getWishlist();
+
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerview);
         RecyclerView.LayoutManager recylerViewLayoutManager = new LinearLayoutManager(mContext);
 
         recyclerView.setLayoutManager(recylerViewLayoutManager);
-        recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(recyclerView, wishlistImageUri));
+        recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(recyclerView, wishlistImageUri, wishlistDetail));
     }
 
     public static class SimpleStringRecyclerViewAdapter
@@ -46,24 +53,34 @@ public class WishlistActivity extends AppCompatActivity {
 
         private ArrayList<String> mWishlistImageUri;
         private RecyclerView mRecyclerView;
+        private ArrayList<Word> wishListDetails;
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
             public final SimpleDraweeView mImageView;
             public final LinearLayout mLayoutItem;
             public final ImageView mImageViewWishlist;
+            public final TextView TexviewName;
+            public final TextView TextviewDesc;
+            public final TextView TextviewPrice;
+
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
                 mImageView = (SimpleDraweeView) view.findViewById(R.id.image_wishlist);
                 mLayoutItem = (LinearLayout) view.findViewById(R.id.layout_item_desc);
                 mImageViewWishlist = (ImageView) view.findViewById(R.id.ic_wishlist);
+                TexviewName = (TextView) view.findViewById(R.id.wishlist_name);
+                TextviewDesc = (TextView) view.findViewById(R.id.wishlist_desc);
+                TextviewPrice = (TextView) view.findViewById(R.id.wishlist_price);
             }
         }
 
-        public SimpleStringRecyclerViewAdapter(RecyclerView recyclerView, ArrayList<String> wishlistImageUri) {
+        public SimpleStringRecyclerViewAdapter(RecyclerView recyclerView,
+                                               ArrayList<String> wishlistImageUri, ArrayList<Word> wishlistDetail) {
             mWishlistImageUri = wishlistImageUri;
             mRecyclerView = recyclerView;
+            this.wishListDetails = wishlistDetail;
         }
 
         @Override
@@ -87,6 +104,11 @@ public class WishlistActivity extends AppCompatActivity {
         public void onBindViewHolder(final WishlistActivity.SimpleStringRecyclerViewAdapter.ViewHolder holder, final int position) {
             final Uri uri = Uri.parse(mWishlistImageUri.get(position));
             holder.mImageView.setImageURI(uri);
+
+            holder.TexviewName.setText(wishListDetails.get(position).getWordName());
+            holder.TextviewDesc.setText(wishListDetails.get(position).getWordDesc());
+            holder.TextviewPrice.setText(wishListDetails.get(position).getWordPrice());
+
             holder.mLayoutItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -103,6 +125,8 @@ public class WishlistActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
                     imageUrlUtils.removeWishlistImageUri(position);
+                    Word word = new Word();
+                    word.removeWishList(position);
                     notifyDataSetChanged();
                 }
             });

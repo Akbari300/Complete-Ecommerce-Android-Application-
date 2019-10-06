@@ -8,32 +8,43 @@
                   android:padding="@dimen/activity_horizontal_margin"
                   android:orientation="horizontal"
                   android:weightSum="3">
-    <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
-              android:id="@+id/image_wishlist" android:layout_width="0dp"
-               android:layout_height="80dp"
-               android:layout_weight="1"
-               android:layout_gravity="center_vertical"
-                                               fresco:placeholderImage="@color/stay_color"/>
+    <com.facebook.drawee.view.SimpleDraweeView
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/image_wishlist"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        fresco:placeholderImage="@color/stay_color"/>
+
         <LinearLayout  android:id="@+id/layout_item_desc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1.8"
             android:layout_marginLeft="@dimen/activity_horizontal_margin">
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Denim Shirt"
-                      android:textSize="10dp"
-                      android:textStyle="bold"/>
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Slim fit, cotton"
-                      android:textSize="10dp"/>
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Rs. 8,999"
-                      android:textSize="12dp"
-                      android:textColor="#4CAF50"/>
+            <TextView
+                android:id="@+id/wishlist_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Denim Shirt"
+                android:textSize="10dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/wishlist_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Slim fit, cotton"
+                android:textSize="10dp"/>
+
+            <TextView
+                android:id="@+id/wishlist_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs. 8,999"
+                android:textSize="12dp"
+                android:textColor="#4CAF50"/>
         </LinearLayout>
         <ImageView android:id="@+id/ic_wishlist"
                    android:layout_width="wrap_content"

@@ -1,7 +1,8 @@
 package com.allandroidprojects.ecomsample.startup;
 
 
-public class Offer extends SuperClass{
+
+public class Offer extends SuperClass {
 
 
     public Offer()

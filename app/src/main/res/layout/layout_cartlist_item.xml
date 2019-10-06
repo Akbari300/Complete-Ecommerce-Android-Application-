@@ -24,21 +24,30 @@
                        android:layout_weight="2"
                        android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Denim Shirt"
-                      android:textSize="@dimen/text_size_small"
-                      android:textStyle="bold"/>
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Slim fit, cotton"
-                      android:textSize="@dimen/text_size_small"/>
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="$ 8.02"
-                      android:textSize="@dimen/text_size_xmedium"
-                      android:textColor="#4CAF50"
-                      android:layout_marginTop="@dimen/margin_small"/>
+            <TextView
+                android:id="@+id/cardlist_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Denim Shirt"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/cardlist_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Slim fit, cotton"
+                android:textSize="@dimen/text_size_small"/>
+
+            <TextView
+                android:id="@+id/cardlist_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$ 8.02"
+                android:textSize="@dimen/text_size_xmedium"
+                android:textColor="#4CAF50"
+                android:layout_marginTop="@dimen/margin_small"/>
+
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text="Delivery charge: FREE"
