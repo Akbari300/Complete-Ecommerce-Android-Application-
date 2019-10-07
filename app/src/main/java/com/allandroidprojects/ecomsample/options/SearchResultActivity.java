@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -18,11 +20,19 @@ import java.util.List;
 public class SearchResultActivity extends AppCompatActivity {
 
     SearchView searchView;
+    RecyclerView recyclerView;
+    SearchAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+
+        recyclerView = (RecyclerView) findViewById(R.id.listshow);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        adapter = new SearchAdapter();
 
     }
     @Override
@@ -69,7 +79,7 @@ public class SearchResultActivity extends AppCompatActivity {
 
     private void message()
     {
-        Toast.makeText(SearchResultActivity.this, "Yes Yes", Toast.LENGTH_SHORT).show();
+        recyclerView.setAdapter(adapter);
     }
 
 
