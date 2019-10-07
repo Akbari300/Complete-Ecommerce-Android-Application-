@@ -67,7 +67,8 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".miscellaneous.EmptyActivity" />
+        <activity android:name=".miscellaneous.EmptyActivity"
+            android:parentActivityName=".startup.MainActivity"/>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 

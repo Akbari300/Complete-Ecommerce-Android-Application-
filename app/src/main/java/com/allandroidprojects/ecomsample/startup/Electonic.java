@@ -6,10 +6,10 @@ public class Electonic extends SuperClass {
     {
 
         super();
-        offers.add(new Word("Phone", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 12.8"));
+        offers.add(new Word("Desktop Computer", "New Apple iMac (27-inch Retina 5k display, 3.1GHz 6-core 8th-generation Intel", "$ 630.8"));
 
-        offers.add(new Word("Phone", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 13.8"));
-        offers.add(new Word("Phone", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 20.8"));
-        offers.add(new Word("PHone", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 18.8"));
+        offers.add(new Word("Samsung Phone", "Samsung Galaxy S10+ Plus G975F GSM Unlocked Smartphone Renewed)  Prism White", "$ 487.8"));
+        offers.add(new Word("Lenes with Chips", "2 Pack 32GB Micro SD SDHC Memory Card Plus Adapter Class 10 U1 UHS-I V10 A1 Pro", "$ 79.8"));
+        offers.add(new Word("Screen player", "Large Swivel Screen, 6 Hrs Long Lasting Built-in Battery, Region Free, Stereo Sound,", "$ 200.8"));
     }
 }

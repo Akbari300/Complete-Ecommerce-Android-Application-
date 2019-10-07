@@ -6,8 +6,8 @@ public class LifeStyle extends SuperClass {
     {
         super();
 
-        offers.add(new Word("Dress", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 13.8"));
-        offers.add(new Word("Dress", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 20.8"));
-        offers.add(new Word("Dress", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 18.8"));
+        offers.add(new Word("Red Party Dress", "VETIOR Women's Long Sleeve Scoop Neck Casual Flared MidiSwing Dress", "$ 21.8"));
+        offers.add(new Word("Spring Outdoor Dress", "Floerns Women's Summer Chiffon Sleeveless Party Dress", "$ 25.8"));
+        offers.add(new Word("Black Bow Tie", "Mens Classic Pre-Tied Satin FormalTuxedo Bowtie Adjustable Length Large", "$ 8.8"));
     }
 }
