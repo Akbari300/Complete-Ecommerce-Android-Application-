@@ -14,6 +14,8 @@ import android.view.MenuInflater;
 import android.widget.Toast;
 
 import com.allandroidprojects.ecomsample.R;
+import com.allandroidprojects.ecomsample.startup.Item;
+import com.allandroidprojects.ecomsample.startup.SearchProduct;
 
 import java.util.List;
 
@@ -23,6 +25,10 @@ public class SearchResultActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SearchAdapter adapter;
 
+    SearchProduct products = new SearchProduct();
+    List<Item> productitems;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +36,19 @@ public class SearchResultActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.listshow);
         recyclerView.setHasFixedSize(true);
+
+        productitems = products.getProductList();
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new SearchAdapter();
+        adapter = new SearchAdapter(productitems, SearchResultActivity.this);
 
-    }
+
+
+
+    }// end of onCreateMethod
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search_menu, menu);
