@@ -1,6 +1,7 @@
 package com.allandroidprojects.ecomsample.options;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 
 import com.allandroidprojects.ecomsample.R;
+import com.allandroidprojects.ecomsample.product.ItemDetailsActivity;
 import com.allandroidprojects.ecomsample.startup.Item;
 
 import java.util.ArrayList;
@@ -19,6 +21,11 @@ import java.util.List;
 
 
 public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holderview>{
+
+    // for itemdetails activity
+    public static final String STRING_IMAGE_URI = "ImageUri";
+    public static final String STRING_IMAGE_POSITION = "ImagePosition";
+    // end of that.
 
     private List<Item> productlist;
     private Context context;
@@ -43,12 +50,27 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
         holder.itemDesc.setText(productlist.get(position).getItemDesc());
         holder.itemPrice.setText("$ "+ productlist.get(position).getItemPrice());
 
+
+        final String name = productlist.get(position).getItemName();
+        final String price = productlist.get(position).getItemPrice();
+        final String desc = productlist.get(position).getItemDesc();
+
+
         holder.linearLayout.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(context, "working Brother", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ItemDetailsActivity.class);
+                intent.putExtra(STRING_IMAGE_URI, productlist.get(position).getItemImageUrl());
+                intent.putExtra(STRING_IMAGE_POSITION, position);
+                intent.putExtra("name", name);
+                intent.putExtra("price", price);
+                intent.putExtra("desc", desc);
+
+
+                context.startActivity(intent);
+
             }
 
         });

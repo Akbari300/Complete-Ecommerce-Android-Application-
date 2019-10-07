@@ -42,6 +42,7 @@
         <activity android:name=".fragments.ViewPagerActivity" />
         <activity
             android:name=".product.ItemDetailsActivity"
+            android:label="Product Details"
             android:parentActivityName=".startup.MainActivity" />
         <activity
             android:name=".options.WishlistActivity"

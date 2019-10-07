@@ -202,6 +202,8 @@ public class ImageListFragment extends Fragment {
                 }
             });
 
+
+
             //Set click action for wishlist
             holder.mImageViewWishlist.setOnClickListener(new View.OnClickListener() {
                 @Override
