@@ -50,10 +50,10 @@ public class SearchProduct {
 
 
         // LIfeStyle
-        productList.add(new Item("Red Dress", "alot of the Description here should be added", "13.8",
+        productList.add(new Item("Red Dress", " alot of the Description here should be added", "13.8",
                 R.drawable.lifestyle_red_dress, "https://static.pexels.com/photos/169047/pexels-photo-169047-medium.jpeg"));
 
-        productList.add(new Item("Spring Outdoor Dress", "alot of the Description here should be added","20.8",
+        productList.add(new Item("Spring Outdoor Dress", "alot of the Description here should be added"," 20.8",
                 R.drawable.lifestyle_spring_white_dress, "https://static.pexels.com/photos/160826/girl-dress-bounce-nature-160826-medium.jpeg"));
 
         productList.add(new Item("Black Bow Tie", "alot of the Description here should be added", "18.8",
@@ -61,7 +61,7 @@ public class SearchProduct {
 
 
         //Home Appliances
-        productList.add(new Item("Double White Bed", "alot of the Description here should be added", "13.8",
+        productList.add(new Item("Double White Bed", " alot of the Description here should be added", "13.8",
                 R.drawable.home_double_bed, "https://static.pexels.com/photos/189293/pexels-photo-189293-medium.jpeg"));
 
         productList.add(new Item("Drawing Art", "alot of the Description here should be added", "20.8",

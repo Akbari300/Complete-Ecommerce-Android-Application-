@@ -13,6 +13,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.startup.Item;
 import com.allandroidprojects.ecomsample.startup.SearchProduct;
@@ -102,15 +105,23 @@ public class SearchResultActivity extends AppCompatActivity {
     {
         query = query.toLowerCase();
         final List<Item> filterModeList = new ArrayList<>();
+        Pattern pattern = Pattern.compile(query);
+        Matcher matcher;
 
         for(Item item: list)
         {
-            final String text = item.getItemName().toLowerCase();
+            final String name = item.getItemName().toLowerCase();
+            final String desc = item.getItemDesc().toLowerCase();
+            final String price = item.getItemPrice().toLowerCase();
+            final String text = name.concat(desc).concat(price);
 
-            if(text.startsWith(query))
+            matcher = pattern.matcher(text);
+
+            if(matcher.find())
             {
                 filterModeList.add(item);
             }
+
         }// end of for
 
 
