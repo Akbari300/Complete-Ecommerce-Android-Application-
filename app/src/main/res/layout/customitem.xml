@@ -1,33 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:cardCornerRadius="10dp"
-    app:cardUseCompatPadding="true">
+    android:background="@drawable/border"
+    android:orientation="vertical">
+<LinearLayout
+    android:id="@+id/layout_wish_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="horizontal"
+    android:weightSum="2">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/search_image"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:padding="0.75dp"
+        android:src="@drawable/first"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout  android:id="@+id/layout_item_desc"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="5dp">
-
-        <ImageView
-            android:id="@+id/product_image"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:padding="0.75dp"
-            android:src="@drawable/profile"
-            android:scaleType="centerCrop" />
+        android:orientation="vertical"
+        android:layout_weight="1.9"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
         <TextView
-            android:id="@+id/product_title"
-            android:layout_width="match_parent"
+            android:id="@+id/search_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_toRightOf="@+id/product_image"
-            android:text="TextView"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:text="Denim Shirt"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
 
-    </RelativeLayout>
-</android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/search_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="Slim fit, cotton hey brother hwo are you doing i am really good"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+
+        <TextView
+            android:id="@+id/search_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="$ 20.01"
+            android:textColor="#4CAF50"/>
+
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

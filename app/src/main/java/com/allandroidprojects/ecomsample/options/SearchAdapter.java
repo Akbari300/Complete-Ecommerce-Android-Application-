@@ -34,7 +34,7 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 2;
     }
 
 
