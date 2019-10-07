@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.startup.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,6 +43,16 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
         holder.itemDesc.setText(productlist.get(position).getItemDesc());
         holder.itemPrice.setText("$ "+ productlist.get(position).getItemPrice());
 
+        holder.linearLayout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view)
+            {
+                Toast.makeText(context, "working Brother", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
 
     }// end of method onBindViewHolder
 
@@ -47,7 +60,16 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
     @Override
     public int getItemCount() {
         return productlist.size();
-    }
+    }// end of method getItemCount;
+
+
+    // method to filter;
+    public void setFilter(List<Item> items)
+    {
+        productlist = new ArrayList<>();
+        productlist.addAll(items);
+        notifyDataSetChanged();
+    }// end of method setFilter
 
 
 
@@ -61,6 +83,7 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
         TextView itemName;
         TextView itemDesc;
         TextView itemPrice;
+        LinearLayout linearLayout;
 
         Holderview(View itemview)
         {
@@ -70,6 +93,7 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
             itemName = (TextView) itemview.findViewById(R.id.search_name);
             itemDesc = (TextView) itemview.findViewById(R.id.search_desc);
             itemPrice = (TextView) itemview.findViewById(R.id.search_price);
+            linearLayout = (LinearLayout) itemview.findViewById(R.id.Search_layout);
         }
     }// end of class HolderView
 

@@ -6,7 +6,7 @@
     android:background="@drawable/border"
     android:orientation="vertical">
 <LinearLayout
-    android:id="@+id/layout_wish_item"
+    android:id="@+id/Search_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/activity_horizontal_margin"

@@ -17,6 +17,7 @@ import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.startup.Item;
 import com.allandroidprojects.ecomsample.startup.SearchProduct;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchResultActivity extends AppCompatActivity {
@@ -42,8 +43,7 @@ public class SearchResultActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new SearchAdapter(productitems, SearchResultActivity.this);
-
-
+        recyclerView.setAdapter(adapter);
 
 
     }// end of onCreateMethod
@@ -80,7 +80,11 @@ public class SearchResultActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                    message();
+                    // code here
+
+                final List<Item> filterlist = listFilter(productitems, newText);
+                adapter.setFilter(filterlist);
+
                 return true;
             }
         });
@@ -88,13 +92,38 @@ public class SearchResultActivity extends AppCompatActivity {
 
 
         return true;
-    }
+    }// end of method onCreateOptionMenu;
 
 
-    private void message()
+
+    // filter listMethod;
+
+    private List<Item> listFilter(List<Item> list, String query)
     {
-        recyclerView.setAdapter(adapter);
-    }
+        query = query.toLowerCase();
+        final List<Item> filterModeList = new ArrayList<>();
+
+        for(Item item: list)
+        {
+            final String text = item.getItemName().toLowerCase();
+
+            if(text.startsWith(query))
+            {
+                filterModeList.add(item);
+            }
+        }// end of for
 
 
-}
+        return filterModeList;
+
+    }// end of method filter;
+
+
+
+
+
+
+
+
+
+}// end of class;
