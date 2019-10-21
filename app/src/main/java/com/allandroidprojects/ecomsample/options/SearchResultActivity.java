@@ -29,6 +29,7 @@ public class SearchResultActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SearchAdapter adapter;
 
+
     SearchProduct products = new SearchProduct();
     List<Item> productitems;
 

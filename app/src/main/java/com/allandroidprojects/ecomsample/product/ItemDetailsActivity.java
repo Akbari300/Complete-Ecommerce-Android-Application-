@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.allandroidprojects.ecomsample.R;
@@ -12,13 +13,16 @@ import com.allandroidprojects.ecomsample.fragments.ImageListFragment;
 import com.allandroidprojects.ecomsample.fragments.ViewPagerActivity;
 import com.allandroidprojects.ecomsample.notification.NotificationCountSetClass;
 import com.allandroidprojects.ecomsample.options.CartListActivity;
+import com.allandroidprojects.ecomsample.startup.Item;
 import com.allandroidprojects.ecomsample.startup.MainActivity;
+import com.allandroidprojects.ecomsample.startup.SearchProduct;
 import com.allandroidprojects.ecomsample.startup.Word;
 import com.allandroidprojects.ecomsample.utility.ImageUrlUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class ItemDetailsActivity extends AppCompatActivity {
@@ -28,6 +32,18 @@ public class ItemDetailsActivity extends AppCompatActivity {
     private String price;
     private String desc;
     private Word word;
+
+    SearchProduct products = new SearchProduct();
+    List<Item> productitems;
+
+    ImageView itemImage;
+    TextView itemName;
+    TextView itemDesc;
+    TextView itemPrice;
+
+    Random random = new Random();
+    int min = 10;
+    int max = 19;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +66,20 @@ public class ItemDetailsActivity extends AppCompatActivity {
             word = new Word(name, desc, price);
 
 
+            productitems = products.getProductList();
+
+            itemImage = (ImageView) findViewById(R.id.search_image);
+            itemName = (TextView) findViewById(R.id.search_name);
+            itemDesc = (TextView) findViewById(R.id.search_desc);
+            itemPrice = (TextView) findViewById(R.id.search_price);
+
+
+            int position = random.nextInt(max - min + 1) + min;
+
+            itemImage.setImageResource(productitems.get(position).getItemImage());
+            itemName.setText(productitems.get(position).getItemName());
+            itemDesc.setText(productitems.get(position).getItemDesc());
+            itemPrice.setText("$ "+ productitems.get(position).getItemPrice());
 
         }
 
@@ -86,11 +116,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
         textViewBuyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
-                imageUrlUtils.addCartListImageUri(stringImageUri);
-                MainActivity.notificationCountCart++;
-                NotificationCountSetClass.setNotifyCount(MainActivity.notificationCountCart);
-                startActivity(new Intent(ItemDetailsActivity.this, CartListActivity.class));
+
+                Toast.makeText(ItemDetailsActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
 
             }
         });

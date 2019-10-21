@@ -29,6 +29,7 @@ import static com.allandroidprojects.ecomsample.fragments.ImageListFragment.STRI
 
 public class CartListActivity extends AppCompatActivity {
     private static Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,8 @@ public class CartListActivity extends AppCompatActivity {
 
         Word word = new Word();
         ArrayList<Word> list = word.getMyCard();
+
+
 
         //Show cart layout based on items
         setCartLayout();

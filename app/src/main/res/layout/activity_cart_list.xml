@@ -40,7 +40,7 @@
                   android:layout_height="match_parent"
                   android:layout_weight="1"
                   android:background="@color/gen_white"
-                  android:text="Rs 8,750"
+                  android:text="$ 87.90"
                   android:textSize="14dp"
                   android:textColor="@color/gen_black"
                   android:textStyle="bold"
