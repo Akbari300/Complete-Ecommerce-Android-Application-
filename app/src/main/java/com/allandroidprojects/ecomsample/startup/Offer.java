@@ -9,7 +9,7 @@ public class Offer extends SuperClass {
     {
 
         super();
-        offers.add(new Word("Bass Guitar", "Classical guitar  type of chordophone, traditionally constructed from wood and strung", "$ 152.8"));
+        offers.add(new Word("Bass Guitar", "Classical guitar  type of chordophone, traditionally constructed from wood a", "$ 152.8"));
 
         offers.add(new Word("Study Glasses", "Peter Jones Anti-Reflective Round Unisex Sunglasses - (NA90|48|White Color Lens)", "$ 320.8"));
         offers.add(new Word("Wall Clock", "Density Collection Digital Clocks Battery Powered Led 7 Colors Changing Night Light Star Sky Digital Led", "$ 80.8"));

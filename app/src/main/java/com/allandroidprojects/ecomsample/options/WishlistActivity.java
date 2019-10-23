@@ -113,12 +113,24 @@ public class WishlistActivity extends AppCompatActivity {
             holder.TextviewDesc.setText(wishListDetails.get(position).getWordDesc());
             holder.TextviewPrice.setText(wishListDetails.get(position).getWordPrice());
 
+
+            final String name = wishListDetails.get(position).getWordName();
+            final String price = wishListDetails.get(position).getWordPrice();
+            final String desc = wishListDetails.get(position).getWordDesc();
+
+
             holder.mLayoutItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, ItemDetailsActivity.class);
                     intent.putExtra(STRING_IMAGE_URI,mWishlistImageUri.get(position));
                     intent.putExtra(STRING_IMAGE_POSITION, position);
+
+                    intent.putExtra("name", name);
+                    intent.putExtra("price", price);
+                    intent.putExtra("desc", desc);
+
+
                     mContext.startActivity(intent);
                 }
             });

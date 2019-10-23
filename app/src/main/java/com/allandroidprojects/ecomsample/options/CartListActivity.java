@@ -114,12 +114,21 @@ public class CartListActivity extends AppCompatActivity {
             holder.textViewDesc.setText(productDetails.get(position).getWordDesc());
             holder.textViewPrice.setText(productDetails.get(position).getWordPrice());
 
+            final String name = productDetails.get(position).getWordName();
+            final String price = productDetails.get(position).getWordPrice();
+            final String desc = productDetails.get(position).getWordDesc();
+
             holder.mLayoutItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, ItemDetailsActivity.class);
                     intent.putExtra(STRING_IMAGE_URI,mCartlistImageUri.get(position));
                     intent.putExtra(STRING_IMAGE_POSITION, position);
+
+                    intent.putExtra("name", name);
+                    intent.putExtra("price", price);
+                    intent.putExtra("desc", desc);
+
                     mContext.startActivity(intent);
                 }
             });

@@ -177,7 +177,7 @@
 
 
       <LinearLayout
-          android:id="@+id/Search_layout"
+          android:id="@+id/apriori"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:padding="@dimen/activity_horizontal_margin"
@@ -228,6 +228,30 @@
           </LinearLayout>
 
       </LinearLayout>
+          <LinearLayout
+              android:id="@+id/text_layout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Description"
+                  android:layout_margin="10dp"
+                  android:textStyle="bold"/>
+              <TextView
+                  android:id="@+id/description_part"
+                  android:layout_width="wrap_content"
+                  android:layout_margin="10dp"
+                  android:layout_height="wrap_content"
+                  android:text="Denim Shirt"
+                  android:textSize="12dp"
+                  android:textColor="@color/gen_black"/>
+
+
+
+          </LinearLayout>
 
 
 

@@ -54,7 +54,7 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
         final String name = productlist.get(position).getItemName();
         final String price = productlist.get(position).getItemPrice();
         final String desc = productlist.get(position).getItemDesc();
-
+        final boolean flag = true;
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener(){
 
@@ -67,7 +67,8 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
                 intent.putExtra("name", name);
                 intent.putExtra("price", price);
                 intent.putExtra("desc", desc);
-
+                intent.putExtra("flag", flag);
+                intent.putExtra("position", position);
 
                 context.startActivity(intent);
 

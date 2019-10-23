@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.allandroidprojects.ecomsample.R;
@@ -28,6 +29,10 @@ import java.util.Random;
 public class ItemDetailsActivity extends AppCompatActivity {
     int imagePosition;
     String stringImageUri;
+
+    public static final String STRING_IMAGE_URI = "ImageUri";
+    public static final String STRING_IMAGE_POSITION = "ImagePosition";
+
     private String name;
     private String price;
     private String desc;
@@ -41,9 +46,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
     TextView itemDesc;
     TextView itemPrice;
 
-    Random random = new Random();
-    int min = 10;
-    int max = 19;
+
+    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,9 @@ public class ItemDetailsActivity extends AppCompatActivity {
         TextView product_names = (TextView) findViewById(R.id.item_detail_name);
         TextView product_price = (TextView) findViewById(R.id.item_detail_price);
 
+        LinearLayout Desc_Layout = (LinearLayout) findViewById(R.id.text_layout);
+        LinearLayout apriori_layout = (LinearLayout) findViewById(R.id.apriori);
+
         //Getting image uri from previous screen
         if (getIntent() != null) {
             stringImageUri = getIntent().getStringExtra(ImageListFragment.STRING_IMAGE_URI);
@@ -62,6 +69,44 @@ public class ItemDetailsActivity extends AppCompatActivity {
             name = getIntent().getStringExtra("name");
             price = getIntent().getStringExtra("price");
             desc = getIntent().getStringExtra("desc");
+            Boolean flag = getIntent().getBooleanExtra("flag", false);
+            int productPosition = getIntent().getIntExtra("position", -1);
+
+            if(productPosition <= 2)
+            {
+                position = 1;
+            }
+
+            else if(productPosition > 3 & productPosition <= 8)
+            {
+                position = 3;
+            }
+
+
+            else if(productPosition > 8 & productPosition <= 12)
+            {
+                position = 6;
+            }
+
+
+            else
+            {
+                position = 10;
+            }
+
+
+
+            if(flag)
+            {
+                Desc_Layout.setVisibility(View.GONE);
+            }
+
+
+            else {
+
+                apriori_layout.setVisibility(View.GONE);
+
+            }
 
             word = new Word(name, desc, price);
 
@@ -70,11 +115,11 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
             itemImage = (ImageView) findViewById(R.id.search_image);
             itemName = (TextView) findViewById(R.id.search_name);
-            itemDesc = (TextView) findViewById(R.id.search_desc);
+            itemDesc = (TextView) findViewById(R.id.description_part);
             itemPrice = (TextView) findViewById(R.id.search_price);
 
 
-            int position = random.nextInt(max - min + 1) + min;
+
 
             itemImage.setImageResource(productitems.get(position).getItemImage());
             itemName.setText(productitems.get(position).getItemName());
@@ -85,6 +130,26 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
         product_names.setText(name);
         product_price.setText(price);
+
+        final boolean flagg = true;
+
+        apriori_layout.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view)
+            {
+                Intent intent = getIntent();
+                intent.putExtra(STRING_IMAGE_URI, productitems.get(position).getItemImageUrl());
+                intent.putExtra(STRING_IMAGE_POSITION, position);
+                intent.putExtra("name", productitems.get(position).getItemName());
+                intent.putExtra("price", productitems.get(position).getItemPrice());
+                intent.putExtra("desc", productitems.get(position).getItemDesc());
+                intent.putExtra("flag", flagg);
+                intent.putExtra("position", position);
+                startActivity(intent);
+
+            }
+        });
+
 
 
         Uri uri = Uri.parse(stringImageUri);
