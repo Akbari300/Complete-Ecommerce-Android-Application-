@@ -10,8 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.widget.Toast;
+
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -106,17 +107,21 @@ public class SearchResultActivity extends AppCompatActivity {
     {
         query = query.toLowerCase();
         final List<Item> filterModeList = new ArrayList<>();
-        Pattern pattern = Pattern.compile(query);
-        Matcher matcher;
+
+
+
+
 
         for(Item item: list)
         {
             final String name = item.getItemName().toLowerCase();
-            final String desc = item.getItemDesc().toLowerCase();
-            final String price = item.getItemPrice().toLowerCase();
-            final String text = name.concat(desc).concat(price);
 
-            matcher = pattern.matcher(text);
+            String [] tokens = name.split(" ");
+
+            String patternString = "\\b(" + StringUtils.join(tokens, "|") + ")\\b";
+            Pattern pattern = Pattern.compile(patternString);
+
+            Matcher matcher = pattern.matcher(query);
 
             if(matcher.find())
             {

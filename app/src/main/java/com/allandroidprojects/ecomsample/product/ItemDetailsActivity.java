@@ -131,7 +131,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
         product_names.setText(name);
         product_price.setText(price);
 
-        final boolean flagg = true;
+        final boolean flagg = false;
 
         apriori_layout.setOnClickListener(new View.OnClickListener(){
 
