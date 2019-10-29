@@ -67,7 +67,7 @@ public class SearchProduct {
         productList.add(new Item("Drawing Art", "Abstract Mountain in Daytime Canvas Prints Wall Art Paintings Abstract Geometry Wall", "25.90",
                 R.drawable.home_drawing_art, "https://static.pexels.com/photos/4703/inside-apartment-design-home-medium.jpg"));
 
-        productList.add(new Item("Sofa with 3 pillows", "Bikuer Printed Dark Blue Sofa Cover Stretch Couch Cover Sofa Slipcovers Couch", "31.99",
+        productList.add(new Item("Sofa 3 pillows", "Bikuer Printed Dark Blue Sofa Cover Stretch Couch Cover Sofa Slipcovers Couch", "31.99",
                 R.drawable.home_sofa_pillow, "https://static.pexels.com/photos/133919/pexels-photo-133919-medium.jpeg"));
 
 
@@ -76,7 +76,7 @@ public class SearchProduct {
 
         //Book
 
-        productList.add(new Item("Zeru to One", "Notes on Startups, or How to Build the Future: Peter Thiel (Author), Blake Masters (Author)",  "1.8",
+        productList.add(new Item("Zeru One", "Notes on Startups, or How to Build the Future: Peter Thiel (Author), Blake Masters (Author)",  "1.8",
                 R.drawable.book_happy, "https://static.pexels.com/photos/67442/pexels-photo-67442-medium.jpeg"));
 
         productList.add(new Item("Diary Notebook", "Great Niche Ideas for No Content and Low Content Books: Work from Home and Make Money Online", "13.0",
