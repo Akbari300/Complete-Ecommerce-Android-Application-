@@ -154,15 +154,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
         Uri uri = Uri.parse(stringImageUri);
         mImageView.setImageURI(uri);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Intent intent = new Intent(ItemDetailsActivity.this, ViewPagerActivity.class);
-                    intent.putExtra("position", imagePosition);
-                    startActivity(intent);
 
-            }
-        });
 
         textViewAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
