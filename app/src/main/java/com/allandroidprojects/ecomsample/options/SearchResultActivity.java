@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
+import android.widget.Toast;
 
 
 import org.apache.commons.lang3.StringUtils;
@@ -40,100 +42,40 @@ public class SearchResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
-        recyclerView = (RecyclerView) findViewById(R.id.listshow);
-        recyclerView.setHasFixedSize(true);
 
-        productitems = products.getProductList();
+            handleIntent(getIntent());
+        }
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            // Inflate menu to add items to action bar if it is present.
+            inflater.inflate(R.menu.search_menu, menu);
+            MenuItem searchItem = menu.getItem(0);
+            // Associate searchable configuration with the SearchView
+            SearchManager searchManager =
+                    (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            SearchView searchView =
+                    (SearchView) menu.findItem(R.id.action_search).getActionView();
+            searchView.setSearchableInfo(
+                    searchManager.getSearchableInfo(getComponentName()));
+            searchView.setFocusable(true);
+            searchItem.expandActionView();
+            return true;
+        }
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new SearchAdapter(productitems, SearchResultActivity.this);
-        recyclerView.setAdapter(adapter);
+        @Override
+        protected void onNewIntent(Intent intent) {
+            handleIntent(intent);
+        }
 
+        private void handleIntent(Intent intent) {
 
-    }// end of onCreateMethod
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search_menu, menu);
-
-        MenuItem searchItem = menu.getItem(0);
-
-        final MenuItem myActionMenuItem = menu.findItem(R.id.action_search);
-        searchView = (SearchView) myActionMenuItem.getActionView();
-
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
-        searchView.setFocusable(true);
-
-        searchItem.expandActionView();
-
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if (!searchView.isIconified()) {
-                    searchView.setIconified(true);
-                }
-                myActionMenuItem.collapseActionView();
-
-                return false;
+            if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+                String query = intent.getStringExtra(SearchManager.QUERY);
+                Toast.makeText(SearchResultActivity.this, query, Toast.LENGTH_SHORT).show();
+                //use the query to search your data somehow
             }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                    // code here
-
-                final List<Item> filterlist = listFilter(productitems, newText);
-                adapter.setFilter(filterlist);
-
-                return true;
-            }
-        });
-
-
-
-        return true;
-    }// end of method onCreateOptionMenu;
-
-
-
-    // filter listMethod;
-
-    private List<Item> listFilter(List<Item> list, String query)
-    {
-        query = query.toLowerCase();
-        final List<Item> filterModeList = new ArrayList<>();
-
-
-
-
-
-        for(Item item: list)
-        {
-            final String name = item.getItemName().toLowerCase();
-
-            String [] tokens = name.split(" ");
-
-            String patternString = "\\b(" + StringUtils.join(tokens, "|") + ")\\b";
-            Pattern pattern = Pattern.compile(patternString);
-
-            Matcher matcher = pattern.matcher(query);
-
-            if(matcher.find())
-            {
-                filterModeList.add(item);
-            }
-
-        }// end of for
-
-
-        return filterModeList;
-
-    }// end of method filter;
+        }
 
 
 
