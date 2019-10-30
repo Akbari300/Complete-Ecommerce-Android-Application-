@@ -27,7 +27,6 @@ import java.util.List;
 
 public class SearchResultActivity extends AppCompatActivity {
 
-    SearchView searchView;
     RecyclerView recyclerView;
     SearchAdapter adapter;
 

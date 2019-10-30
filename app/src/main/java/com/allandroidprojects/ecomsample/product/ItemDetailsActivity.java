@@ -200,7 +200,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
             }
         });
-        
+
 
     }
 }

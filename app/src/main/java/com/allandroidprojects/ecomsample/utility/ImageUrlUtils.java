@@ -68,7 +68,7 @@ public class ImageUrlUtils {
                 "https://static.pexels.com/photos/67442/pexels-photo-67442-medium.jpeg",
                 "https://static.pexels.com/photos/159494/book-glasses-read-study-159494-medium.jpeg",
                 "https://static.pexels.com/photos/33283/stack-of-books-vintage-books-book-books-medium.jpg",
-                "https://static.pexels.com/photos/205323/pexels-photo-205323-medium.png"
+
         };
         return urls;
     }
