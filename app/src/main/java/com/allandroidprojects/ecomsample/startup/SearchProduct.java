@@ -53,7 +53,7 @@ public class SearchProduct {
         productList.add(new Item("Red Party Dress", "VETIOR Women's Long Sleeve Scoop Neck Casual Flared Midi Swing Dress", "21.8",
                 R.drawable.lifestyle_red_dress, "https://static.pexels.com/photos/169047/pexels-photo-169047-medium.jpeg"));
 
-        productList.add(new Item("Spring Outdoor Dress", "Floerns Women's Summer Chiffon Sleeveless Party Dress has sleeveless"," 25.8",
+        productList.add(new Item("Spring Outdoor cloth", "Floerns Women's Summer Chiffon Sleeveless Party Dress has sleeveless"," 25.8",
                 R.drawable.lifestyle_spring_white_dress, "https://static.pexels.com/photos/160826/girl-dress-bounce-nature-160826-medium.jpeg"));
 
         productList.add(new Item("Black Bow Tie", "Mens Classic Pre-Tied Satin FormalTuxedo Bowtie Adjustable Length Large", "8.8",
@@ -67,7 +67,7 @@ public class SearchProduct {
         productList.add(new Item("Drawing Art", "Abstract Mountain in Daytime Canvas Prints Wall Art Paintings Abstract Geometry Wall", "25.90",
                 R.drawable.home_drawing_art, "https://static.pexels.com/photos/4703/inside-apartment-design-home-medium.jpg"));
 
-        productList.add(new Item("Sofa 3 pillows", "Bikuer Printed Dark Blue Sofa Cover Stretch Couch Cover Sofa Slipcovers Couch", "31.99",
+        productList.add(new Item("Sofa pillows", "Bikuer Printed Dark Blue Sofa Cover Stretch Couch Cover Sofa Slipcovers Couch", "31.99",
                 R.drawable.home_sofa_pillow, "https://static.pexels.com/photos/133919/pexels-photo-133919-medium.jpeg"));
 
 

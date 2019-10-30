@@ -46,8 +46,9 @@ public class ItemDetailsActivity extends AppCompatActivity {
     TextView itemDesc;
     TextView itemPrice;
 
+    int productPosition;
 
-    int position;
+    int position = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,33 +71,54 @@ public class ItemDetailsActivity extends AppCompatActivity {
             price = getIntent().getStringExtra("price");
             desc = getIntent().getStringExtra("desc");
             Boolean flag = getIntent().getBooleanExtra("flag", false);
-            int productPosition = getIntent().getIntExtra("position", -1);
+             productPosition = getIntent().getIntExtra("position", -1);
 
-            if(productPosition <= 2)
-            {
-                position = 1;
-            }
+            boolean suggest = false;
 
-            else if(productPosition > 3 & productPosition <= 8)
-            {
-                position = 3;
-            }
+             if(name.equals("Red Party Dress")) {
+                 position = 10;
+                 suggest = true;
 
+             }
 
-            else if(productPosition > 8 & productPosition <= 12)
-            {
-                position = 6;
-            }
+             else  if(name.equals("Spring Outdoor cloth"))
+             {
+                 position = 9;
+                 suggest = true;
+             }
 
 
-            else
-            {
-                position = 10;
-            }
+             else if(name.equals("Sofa pillows"))
+             {
+                 position = 12;
+                 suggest = true;
+             }
+
+             else if(name.contentEquals("Double White Bed"))
+             {
+                 position = 14;
+                 suggest = true;
+             }
+
+             else if(name.contentEquals("Desktop Computer"))
+             {
+                 position = 7;
+                 suggest = true;
+             }
+
+             else if(name.contentEquals("Samsung Phone"))
+             {
+                 position = 6;
+                 suggest = true;
+             }
+
+             else
+                 position = 0;
 
 
 
-            if(flag)
+
+            if(flag & suggest)
             {
                 Desc_Layout.setVisibility(View.GONE);
             }
@@ -178,6 +200,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
             }
         });
+        
 
     }
 }

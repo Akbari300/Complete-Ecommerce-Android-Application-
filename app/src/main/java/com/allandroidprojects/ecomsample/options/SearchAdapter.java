@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.product.ItemDetailsActivity;
 import com.allandroidprojects.ecomsample.startup.Item;
+import com.allandroidprojects.ecomsample.startup.SearchProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,12 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
     public static final String STRING_IMAGE_URI = "ImageUri";
     public static final String STRING_IMAGE_POSITION = "ImagePosition";
     // end of that.
+
+    SearchProduct products = new SearchProduct();
+    List<Item> productOriginal =  products.getProductList();
+
+    int newposition;
+
 
     private List<Item> productlist;
     private Context context;
@@ -50,6 +57,14 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
         holder.itemDesc.setText(productlist.get(position).getItemDesc());
         holder.itemPrice.setText("$ "+ productlist.get(position).getItemPrice());
 
+        for(int i = 0; i < productOriginal.size(); i++)
+        {
+            String name = productOriginal.get(i).getItemName();
+            if(productlist.get(position).getItemName().equals(name))
+            {
+                newposition = i;
+            }
+        }
 
         final String name = productlist.get(position).getItemName();
         final String price = productlist.get(position).getItemPrice();
@@ -68,7 +83,7 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.Holdervie
                 intent.putExtra("price", price);
                 intent.putExtra("desc", desc);
                 intent.putExtra("flag", flag);
-                intent.putExtra("position", position);
+                intent.putExtra("position", newposition);
 
                 context.startActivity(intent);
 
