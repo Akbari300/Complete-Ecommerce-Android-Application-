@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
-import android.widget.Toast;
 
 
 import org.apache.commons.lang3.StringUtils;
@@ -42,6 +41,16 @@ public class SearchResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
+        recyclerView = (RecyclerView) findViewById(R.id.listshow);
+        recyclerView.setHasFixedSize(true);
+
+        productitems = products.getProductList();
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        adapter = new SearchAdapter(productitems, SearchResultActivity.this);
+        recyclerView.setAdapter(adapter);
+
 
             handleIntent(getIntent());
         }
@@ -51,6 +60,7 @@ public class SearchResultActivity extends AppCompatActivity {
             // Inflate menu to add items to action bar if it is present.
             inflater.inflate(R.menu.search_menu, menu);
             MenuItem searchItem = menu.getItem(0);
+
             // Associate searchable configuration with the SearchView
             SearchManager searchManager =
                     (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -72,10 +82,47 @@ public class SearchResultActivity extends AppCompatActivity {
 
             if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
                 String query = intent.getStringExtra(SearchManager.QUERY);
-                Toast.makeText(SearchResultActivity.this, query, Toast.LENGTH_SHORT).show();
+
+                final List<Item> filterlist = listFilter(productitems, query);
+                adapter.setFilter(filterlist);
                 //use the query to search your data somehow
             }
         }
+
+
+
+
+    private List<Item> listFilter(List<Item> list, String query)
+    {
+        query = query.toLowerCase();
+        final List<Item> filterModeList = new ArrayList<>();
+
+
+
+
+
+        for(Item item: list)
+        {
+            final String name = item.getItemName().toLowerCase();
+
+            String [] tokens = name.split(" ");
+
+            String patternString = "\\b(" + StringUtils.join(tokens, "|") + ")\\b";
+            Pattern pattern = Pattern.compile(patternString);
+
+            Matcher matcher = pattern.matcher(query);
+
+            if(matcher.find())
+            {
+                filterModeList.add(item);
+            }
+
+        }// end of for
+
+
+        return filterModeList;
+
+    }// end of method filter;
 
 
 
