@@ -13,7 +13,7 @@ email: akbarialiahmad@gmail.com
 
 
 
-<b>Ecommerce Functionalities:<b/>
+<b>Ecommerce Functionalities:</b>
 
 1. Products categories 
 2. Semantic Product Search 
