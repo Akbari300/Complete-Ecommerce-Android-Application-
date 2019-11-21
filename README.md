@@ -35,9 +35,9 @@ Please feel free to comment for any clarification or suggestion.
 
 <a href="url"><img src="https://github.com/Akbari300/Complete-Ecommerce-Android-Application-/blob/master/screenshots/first.png" align="left" height="380" width="240" ></a>
 
-<a href="url"><img src="https://github.com/MukeshKumar009/EcomSample/blob/master/screenshots/Screenshot_2016-11-04-11-16-39-455_com.allandroidprojects.ecomsample.jpg" align="left" height="380" width="240" ></a>
+<a href="url"><img src="https://github.com/Akbari300/Complete-Ecommerce-Android-Application-/blob/master/screenshots/second.png" align="left" height="380" width="240" ></a>
 
-<a href="url"><img src="https://github.com/MukeshKumar009/EcomSample/blob/master/screenshots/Screenshot_2016-11-04-11-15-57-793_com.allandroidprojects.ecomsample.jpg" align="left" height="380" width="240" ></a>
+<a href="url"><img src="https://github.com/Akbari300/Complete-Ecommerce-Android-Application-/blob/master/screenshots/third.png" align="left" height="380" width="240" ></a>
 
 
 <a href="url"><img src="https://github.com/MukeshKumar009/EcomSample/blob/master/screenshots/Screenshot_2016-11-04-11-17-25-951_com.allandroidprojects.ecomsample.png" align="left" height="380" width="240" ></a>
