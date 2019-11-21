@@ -1,10 +1,13 @@
 #Ecommerce Android Mobile Application - e-commerce Online Shopping App like flipkart, snapdeal, amazon
 
-When ever I used to open any online shopping app, I wanted to know the the mechanism behind loading items, images, data which are not in some limited size. As an Android developer I can understand that many beginners would be thinking to make android app like flipkart, snapdeal or amazon etc. So here is the EcomSample app with complete source code available in github. Sample app is available on PlayStore.
+
+
 
 Application has been designed using [fresco](https://github.com/facebook/fresco) library for image loading and caching. All new features like top eCommerce app have been added in this app. This app is best practice for Android Developers.
 
-
+for any inquery
+personal website: https://www.aliakbari.co 
+email: akbarialiahmad@gmail.com
 
 
 
@@ -30,7 +33,7 @@ Please feel free to comment for any clarification or suggestion.
 
 ###Screen shots: 
 
-<a href="url"><img src="https://github.com/MukeshKumar009/EcomSample/blob/master/screenshots/Screenshot_2016-11-04-11-20-58-621_com.allandroidprojects.ecomsample.png" align="left" height="380" width="240" ></a>
+<a href="url"><img src="https://github.com/Akbari300/Complete-Ecommerce-Android-Application-/blob/master/screenshots/first.png" align="left" height="380" width="240" ></a>
 
 <a href="url"><img src="https://github.com/MukeshKumar009/EcomSample/blob/master/screenshots/Screenshot_2016-11-04-11-16-39-455_com.allandroidprojects.ecomsample.jpg" align="left" height="380" width="240" ></a>
 
