@@ -1,6 +1,6 @@
 #Ecommerce Android Mobile Application -    e-commerce Online Shopping Application  
 
-The application has been designed for e-commerce purpose alongside its dashboard (), project had learning purpose and will get ready for business purpose after few improvements. the completely e-commerce funationality listed bellow, the Main purpose was to implement Semantic search and Apriori Algorithm for products suggestions. if you wanna know more in details feel free to reach me out. contact bellow. 
+The application has been designed for e-commerce purpose alongside its dashboard [Dashbaord](https://github.com/Akbari300/Ecommerce-Android-Application-Dashboard.git), project had learning purpose and will get ready for business purpose after few improvements. the completely e-commerce funationality listed bellow, the Main purpose was to implement Semantic search and Apriori Algorithm for products suggestions. if you wanna know more in details feel free to reach me out. contact bellow. 
 
 
 
