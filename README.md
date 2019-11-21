@@ -1,12 +1,13 @@
-#Ecommerce Android Mobile Application - e-commerce Online Shopping App like flipkart, snapdeal, amazon
+#Ecommerce Android Mobile Application -    e-commerce Online Shopping Application  
 
+The application has been designed for e-commerce purpose alongside its dashboard (), project had learning purpose and will get ready for business purpose after few improvements. the completely e-commerce funationality listed bellow, the Main purpose was to implement Semantic search and Apriori Algorithm for products suggestions. if you wanna know more in details feel free to reach me out. contact bellow. 
 
 
 
 Application has been designed using [fresco](https://github.com/facebook/fresco) library for image loading and caching. All new features like top eCommerce app have been added in this app. This app is best practice for Android Developers.
 
 for any inquery
-personal website: https://www.aliakbari.co 
+personal website: https://www.aliakbari.co <br/>
 email: akbarialiahmad@gmail.com
 
 
