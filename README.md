@@ -13,24 +13,24 @@ email: akbarialiahmad@gmail.com
 
 
 
-###This app has below features:
+<b>Ecommerce Functionalities:<b/>
 
-1. Loading and caching images with RecyclerView and CardView.
-2. Add to Cart and Wishlist, manage cart and wishlist.
-3. Category wise items/products loading and caching in list.
-4. Detailed item description.
-5. All other options available in side Navigation Drawer.
-6. Introslider at starting of application.
-6. Material design based app.
+1. Products categories 
+2. Semantic Product Search 
+3. product recommendation using Apriori Algorithm 
+4. product order, account login and registration
+5. Loading and caching images with RecyclerView and CardView.
+6. Add to Cart and Wishlist, manage cart and wishlist.
+7. Category wise items/products loading and caching in list.
+8. Detailed item description.
+9. All other options available in side Navigation Drawer.
+10. Introslider at starting of application.
+11. Material design based app.
 
 
 Note: Please consider the below points
 
-1.The images are downloading from this site: https://www.pexels.com, But you can provide your own server urls to load the image.
-
-2.Item description I have just hard coded only for showcase. 
-
-Please feel free to comment for any clarification or suggestion.
+copywrite: code avialable for opensource. feel free to use but consider the copy write standards (fork). 
 
 ###Screen shots: 
 
